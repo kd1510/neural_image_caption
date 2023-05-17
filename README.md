@@ -18,8 +18,9 @@
 
 #### Encoder
 - The encoder is an EfficientNet with weights pretrained on ImageNet.
-- The final layer of the EfficientNet is removed and the output of the penultimate layer is used as the image embedding, which is then passed to the decoder.
-- The image embedding is passed through a linear layer to reduce the dimensionality of the feature vector to the dimensionality of the joint embedding space.
+- The final layer of the EfficientNet is removed all prior layers are frozen for the duration of the training process.
+- The image embedding is passed through a linear layer to reduce the dimensionality of the feature vector to the dimensionality of the joint embedding space. 
+- This final layer is jointly trained along with the decoder in order to learn the joint embedding space.
 
 #### Decoder
 - The decoder is an LSTM which generates a caption for the image.
